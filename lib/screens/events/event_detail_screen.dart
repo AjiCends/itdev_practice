@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/providers/event_provider.dart';
-import 'package:flutter_application_2/screens/event_register_screen.dart';
+import 'package:flutter_application_2/screens/events/event_register_screen.dart';
 import 'package:provider/provider.dart';
 
 class EventDetail extends StatefulWidget {

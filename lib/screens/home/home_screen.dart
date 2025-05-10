@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/screens/event_scren.dart';
-import 'package:flutter_application_2/screens/myevent_screen.dart';
+import 'package:flutter_application_2/screens/events/event_scren.dart';
+import 'package:flutter_application_2/screens/events/myevent_screen.dart';
+import 'package:flutter_application_2/screens/home/home_drawer.dart';
+import 'package:flutter_application_2/services/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,10 +20,14 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      drawer: HomeDrawer(),
       appBar: AppBar(
-        leading: const Icon(Icons.map),
+        // leading: const Icon(Icons.map),
         title: const Text('Destination Tourism App'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        actions: [IconButton(onPressed: () async {
+          AuthService _auth = AuthService();
+          await _auth.signOut();
+        }, icon: const Icon(Icons.logout))],
       ),
       body: SingleChildScrollView(
         child: Column(
